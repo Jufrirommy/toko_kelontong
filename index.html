@@ -4,87 +4,188 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko Kelontong Kita</title>
-
     <style>
+        /* Mengatur scroll halus saat menu diklik */
+        html {
+            scroll-behavior: smooth;
+        }
         body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background: #f4f7f4;
-            color: #222;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
         }
-
-        header {
-            background: #16834a;
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-
+        /* Menu Navigasi Atas */
         nav {
-            background: #116638;
-            padding: 15px;
-            text-align: center;
+            background-color: #2e7d32;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-
-        nav a {
+        nav .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        nav .menu a {
             color: white;
             text-decoration: none;
-            margin: 10px;
+            margin-left: 15px;
+            font-size: 15px;
+            font-weight: bold;
         }
-
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
+        nav .menu a:hover {
+            text-decoration: underline;
         }
-
-        .hero h2 {
-            color: #16834a;
-            font-size: 30px;
-        }
-
-        .produk {
-            background: white;
-            margin: 20px;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        footer {
-            background: #116638;
+        /* Bagian Beranda (Header) */
+        header {
+            background-color: #388e3c;
             color: white;
             text-align: center;
+            padding: 50px 20px;
+        }
+        header h1 {
+            margin: 0 0 10px 0;
+        }
+        /* Wadah Konten Utama */
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            color: #2e7d32;
+            border-bottom: 2px solid #2e7d32;
+            padding-bottom: 5px;
+        }
+        /* Kartu Produk */
+        .produk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .kartu-produk {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .harga {
+            font-weight: bold;
+            color: #d32f2f;
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        /* Tombol WhatsApp */
+        .btn-wa {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        .btn-wa:hover {
+            background-color: #1ebe57;
+        }
+        /* Bagian Kontak & Footer */
+        .kontak-box {
+            background: white;
             padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: #222;
+            color: white;
+            font-size: 14px;
         }
     </style>
 </head>
-
 <body>
 
-    <header>
-        <h1>TOKO KELONTONG KITA</h1>
-        <p>Belanja Mudah, Harga Bersahabat</p>
-    </header>
-
+    <!-- MENU NAVIGASI (Klik Beranda, Produk, Kontak Berfungsi) -->
     <nav>
-        <a href="#">Beranda</a>
-        <a href="#produk">Produk</a>
-        <a href="#kontak">Kontak</a>
+        <a href="#beranda" class="logo">Toko Kelontong Kita</a>
+        <div class="menu">
+            <a href="#beranda">Beranda</a>
+            <a href="#produk">Produk</a>
+            <a href="#kontak">Kontak</a>
+        </div>
     </nav>
 
-    <section class="hero">
-        <h2>Selamat Datang!</h2>
-        <p>Kebutuhan sehari-hari tersedia di toko kami.</p>
-    </section>
+    <!-- BAGIAN BERANDA -->
+    <header id="beranda">
+        <h1>Selamat Datang di Toko Kelontong Kita</h1>
+        <p>Menyediakan kebutuhan pokok sehari-hari dengan harga terjangkau & siap antar!</p>
+        <a href="#produk" class="btn-wa" style="background-color: #ff9800;">Lihat Daftar Barang</a>
+    </header>
 
-    <section class="produk" id="produk">
-        <h2>Produk Kami</h2>
-        <p>Beras | Minyak | Gula | Telur | Mie Instan</p>
-    </section>
+    <div class="container">
+        
+        <!-- BAGIAN PRODUK -->
+        <section id="produk">
+            <h2>Daftar Kebutuhan Pokok</h2>
+            <div class="produk-grid">
+                
+                <!-- Produk 1 -->
+                <div class="kartu-produk">
+                    <h3>Beras Premium 5 Kg</h3>
+                    <p>Beras pulen berkualitas tinggi</p>
+                    <div class="harga">Rp 75.000</div>
+                    <!-- GANTI 6282346731999 DENGAN NOMOR WA ANDA -->
+                    <a href="https://wa.me" target="_blank" class="btn-wa">Pesan via WhatsApp</a>
+                </div>
 
-    <footer id="kontak">
-        <p>Hubungi Kami: 08xxxxxxxxxx</p>
-        <p>© 2026 Toko Kelontong Kita</p>
+                <!-- Produk 2 -->
+                <div class="kartu-produk">
+                    <h3>Minyak Goreng 2 Liter</h3>
+                    <p>Minyak goreng kemasan pouch</p>
+                    <div class="harga">Rp 34.000</div>
+                    <!-- GANTI 6282346731999 DENGAN NOMOR WA ANDA -->
+                    <a href="https://wa.me" target="_blank" class="btn-wa">Pesan via WhatsApp</a>
+                </div>
+
+                <!-- Produk 3 -->
+                <div class="kartu-produk">
+                    <h3>Gula Pasir 1 Kg</h3>
+                    <p>Gula pasir putih bersih</p>
+                    <div class="harga">Rp 17.500</div>
+                    <!-- GANTI 6282346731999 DENGAN NOMOR WA ANDA -->
+                    <a href="https://wa.me" target="_blank" class="btn-wa">Pesan via WhatsApp</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BAGIAN KONTAK -->
+        <section id="kontak" class="kontak-box">
+            <h2>Hubungi & Lokasi Toko</h2>
+            <p>Ingin tanya stok barang lain atau pesan antar ke rumah? Langsung chat kami:</p>
+            <!-- GANTI 6282346731999 DENGAN NOMOR WA ANDA -->
+            <a href="https://wa.me" target="_blank" class="btn-wa">Chat WhatsApp Toko</a>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2026 Toko Kelontong Kita. Melayani dengan Sepenuh Hati.
     </footer>
 
 </body>
